@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Ece Seçkin</title>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800;900&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<style>
+
+*{
+
+margin:0;
+
+padding:0;
+
+box-sizing:border-box;
+
+}
+
+body{
+
+font-family:'Vazirmatn',sans-serif;
+
+background:#f5f6fb;
+
+padding:35px;
+
+}
+
+.container{
+
+max-width:1500px;
+
+margin:auto;
+
+}
+
+.hero{
+
+position:relative;
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+padding:70px;
+
+overflow:hidden;
+
+border-radius:34px;
+
+background:
+
+radial-gradient(circle at 85% 25%,
+rgba(173,84,255,.18),
+transparent 30%),
+
+radial-gradient(circle at 70% 70%,
+rgba(255,120,200,.15),
+transparent 35%),
+
+linear-gradient(135deg,
+#ffffff 0%,
+#fbf7ff 45%,
+#f3ebff 100%);
+
+box-shadow:
+
+0 25px 70px rgba(94,44,190,.08),
+
+0 8px 18px rgba(0,0,0,.04);
+
+}
+
+.hero::before{
+
+content:"";
+
+position:absolute;
+
+right:-150px;
+
+top:-120px;
+
+width:620px;
+
+height:620px;
+
+border-radius:50%;
+
+background:
+
+radial-gradient(circle,
+rgba(185,96,255,.22),
+transparent 72%);
+
+filter:blur(45px);
+
+}
+
+.hero::after{
+
+content:"";
+
+position:absolute;
+
+left:-160px;
+
+bottom:-180px;
+
+width:500px;
+
+height:500px;
+
+background:
+
+radial-gradient(circle,
+rgba(255,150,220,.12),
+transparent 70%);
+
+filter:blur(60px);
+
+border-radius:50%;
+
+}
+
+.left{
+
+width:56%;
+
+position:relative;
+
+z-index:3;
+
+}
+
+.right{
+
+width:40%;
+
+position:relative;
+
+display:flex;
+
+justify-content:center;
+
+align-items:flex-end;
+
+z-index:3;
+
+}
+/* ===== Typography ===== */
+
+.title{
+font-size:64px;
+font-weight:900;
+line-height:1.08;
+margin-bottom:18px;
+letter-spacing:-1px;
+}
+
+.title .latin{
+display:block;
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#6b2cff 0%,#8a46ff 55%,#b55cff 100%);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+margin-bottom:6px;
+}
+
+.title .fa{
+display:block;
+color:#1f2140;
+}
+
+.subtitle{
+font-size:20px;
+line-height:2;
+color:#6a6d85;
+font-weight:500;
+margin-bottom:42px;
+max-width:720px;
+}
+
+/* ===== Feature Cards ===== */
+
+.features{
+display:flex;
+gap:18px;
+flex-wrap:wrap;
+margin-bottom:42px;
+}
+
+.feature{
+width:150px;
+height:138px;
+background:rgba(255,255,255,.78);
+backdrop-filter:blur(14px);
+-webkit-backdrop-filter:blur(14px);
+border:1px solid rgba(255,255,255,.9);
+border-radius:24px;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+gap:12px;
+box-shadow:
+0 18px 35px rgba(86,42,200,.08),
+0 2px 8px rgba(0,0,0,.03);
+transition:all .35s ease;
+cursor:pointer;
+}
+
+.feature:hover{
+transform:translateY(-8px);
+box-shadow:
+0 26px 48px rgba(115,52,255,.16),
+0 8px 18px rgba(0,0,0,.06);
+}
+
+.icon{
+width:64px;
+height:64px;
+border-radius:18px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+background:linear-gradient(135deg,#f3e8ff,#f8f1ff);
+color:#8a2dff;
+box-shadow:
+inset 0 1px 0 rgba(255,255,255,.9),
+0 8px 18px rgba(138,45,255,.12);
+}
+
+.feature h4{
+font-size:15px;
+font-weight:800;
+color:#535774;
+}
+
+.feature .sub{
+font-size:12px;
+color:#8b8fa8;
+font-weight:600;
+}
+
+/* ===== Main Button ===== */
+
+.mainBtn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:12px;
+padding:18px 42px;
+border-radius:999px;
+text-decoration:none;
+font-size:19px;
+font-weight:800;
+color:#fff;
+background:
+linear-gradient(135deg,
+#6b2cff 0%,
+#8d44ff 50%,
+#b55cff 100%);
+box-shadow:
+0 20px 45px rgba(107,44,255,.35),
+0 8px 18px rgba(0,0,0,.08);
+transition:all .35s ease;
+position:relative;
+overflow:hidden;
+}
+
+.mainBtn::before{
+content:'';
+position:absolute;
+top:0;
+left:-120%;
+width:100%;
+height:100%;
+background:
+linear-gradient(90deg,
+transparent,
+rgba(255,255,255,.28),
+transparent);
+transition:left .7s ease;
+}
+
+.mainBtn:hover::before{
+left:120%;
+}
+
+.mainBtn:hover{
+transform:translateY(-4px) scale(1.01);
+box-shadow:
+0 28px 60px rgba(107,44,255,.42),
+0 12px 24px rgba(0,0,0,.10);
+}
+
+.mainBtn i{
+font-size:16px;
+}
+.title{
+
+font-size:64px;
+
+font-weight:900;
+
+line-height:1.15;
+
+margin-bottom:18px;
+
+color:#20224d;
+
+letter-spacing:-1px;
+
+}
+
+.title span{
+
+display:block;
+
+font-size:72px;
+
+background:linear-gradient(90deg,#7a2cff,#b34cff);
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+}
+
+.subtitle{
+
+font-size:22px;
+
+line-height:2;
+
+color:#666b87;
+
+margin-bottom:48px;
+
+max-width:760px;
+
+}
+
+.features{
+
+display:flex;
+
+gap:20px;
+
+margin-bottom:50px;
+
+flex-wrap:wrap;
+
+}
+
+.feature{
+
+width:155px;
+
+height:145px;
+
+background:rgba(255,255,255,.82);
+
+backdrop-filter:blur(12px);
+
+border-radius:24px;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+border:1px solid rgba(255,255,255,.9);
+
+box-shadow:
+
+0 18px 35px rgba(91,40,190,.08),
+
+0 0 0 1px rgba(245,240,255,.9);
+
+transition:.35s;
+
+cursor:pointer;
+
+}
+
+.feature:hover{
+
+transform:translateY(-8px);
+
+box-shadow:
+
+0 28px 55px rgba(115,45,220,.16);
+
+}
+
+.icon{
+
+width:62px;
+
+height:62px;
+
+border-radius:18px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+background:linear-gradient(135deg,#f5ecff,#ffffff);
+
+font-size:30px;
+
+color:#8b34ff;
+
+margin-bottom:15px;
+
+box-shadow:
+
+0 10px 25px rgba(110,55,240,.12);
+
+}
+
+.feature h4{
+
+font-size:17px;
+
+font-weight:700;
+
+color:#5b5e74;
+
+}
+
+.mainBtn{
+
+display:inline-flex;
+
+align-items:center;
+
+justify-content:center;
+
+gap:12px;
+
+padding:20px 70px;
+
+border-radius:18px;
+
+text-decoration:none;
+
+background:linear-gradient(135deg,#6b2cff,#9546ff,#b65eff);
+
+color:#fff;
+
+font-size:21px;
+
+font-weight:800;
+
+box-shadow:
+
+0 22px 45px rgba(115,52,255,.35);
+
+transition:.35s;
+
+}
+
+.mainBtn:hover{
+
+transform:translateY(-5px);
+
+box-shadow:
+
+0 32px 60px rgba(115,52,255,.45);
+
+}
+
+.mainBtn i{
+
+font-size:18px;
+
+transition:.3s;
+
+}
+
+.mainBtn:hover i{
+
+transform:translateY(4px);
+
+}
+.right{
+
+position:relative;
+
+display:flex;
+
+justify-content:center;
+
+align-items:flex-end;
+
+min-height:540px;
+
+overflow:visible;
+
+}
+
+/* هاله بنفش اصلی */
+
+.right::before{
+
+content:"";
+
+position:absolute;
+
+width:540px;
+
+height:540px;
+
+border-radius:50%;
+
+background:
+
+radial-gradient(circle,
+
+rgba(180,70,255,.42) 0%,
+
+rgba(255,120,220,.22) 38%,
+
+rgba(255,255,255,0) 72%);
+
+filter:blur(35px);
+
+z-index:1;
+
+animation:glow 6s ease-in-out infinite;
+
+}
+
+/* نور پایین */
+
+.right::after{
+
+content:"";
+
+position:absolute;
+
+bottom:0;
+
+width:360px;
+
+height:70px;
+
+background:rgba(40,20,90,.18);
+
+border-radius:50%;
+
+filter:blur(28px);
+
+z-index:2;
+
+}
+
+.artist{
+
+position:relative;
+
+width:430px;
+
+max-width:100%;
+
+z-index:5;
+background:none;
+
+
+animation:float 5s ease-in-out infinite;
+
+filter:
+
+drop-shadow(0 25px 35px rgba(0,0,0,.15))
+
+drop-shadow(0 0 30px rgba(180,60,255,.30))
+
+drop-shadow(0 0 70px rgba(255,120,220,.22));
+
+mask-image:
+linear-gradient(
+to bottom,
+black 0%,
+black 82%,
+transparent 100%
+);
+
+-webkit-mask-image:
+linear-gradient(
+to bottom,
+black 0%,
+black 82%,
+transparent 100%
+);
+
+
+}
+.artist{
+
+width:430px;
+
+position:relative;
+
+z-index:5;
+
+filter:
+
+drop-shadow(0 35px 45px rgba(0,0,0,.16))
+
+drop-shadow(0 0 70px rgba(214,70,255,.25));
+
+mask-image:
+
+linear-gradient(to bottom,
+black 0%,
+black 88%,
+transparent);
+
+-webkit-mask-image:
+
+linear-gradient(to bottom,
+black 0%,
+black 88%,
+transparent);
+
+}
+.right{
+    position:relative;
+}
+
+.right::before{
+    content:"";
+    position:absolute;
+    width:550px;
+    height:550px;
+    right:-40px;
+    top:-30px;
+    border-radius:50%;
+    background:
+    radial-gradient(circle,
+    rgba(221,90,255,.45),
+    rgba(255,170,220,.18),
+    transparent 70%);
+    filter:blur(45px);
+}
+
+.artist{
+    position:relative;
+    z-index:5;
+
+    filter:
+    drop-shadow(0 40px 50px rgba(0,0,0,.15))
+    drop-shadow(0 0 70px rgba(225,70,255,.28));
+
+    mask-image:
+    linear-gradient(
+    to bottom,
+    black 0%,
+    black 82%,
+    transparent 100%);
+}
+
+/* نوت‌های موزیک */
+
+.music-note{
+
+position:absolute;
+
+width:54px;
+
+height:54px;
+
+border-radius:18px;
+
+background:#fff;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:22px;
+
+color:#9a37ff;
+
+box-shadow:
+
+0 12px 35px rgba(105,55,220,.14);
+
+z-index:6;
+
+animation:floatNote 4s ease-in-out infinite;
+
+}
+
+.note1{
+
+top:70px;
+
+right:40px;
+
+}
+
+.note2{
+
+left:20px;
+
+top:200px;
+
+animation-delay:1s;
+
+}
+
+.note3{
+
+right:10px;
+
+bottom:80px;
+
+animation-delay:2s;
+
+}
+
+.note4{
+
+left:80px;
+
+bottom:20px;
+
+animation-delay:3s;
+
+}
+
+@keyframes float{
+
+0%{
+
+transform:translateY(0px);
+
+}
+
+50%{
+
+transform:translateY(-10px);
+
+}
+
+100%{
+
+transform:translateY(0px);
+
+}
+
+}
+
+@keyframes glow{
+
+0%{
+
+transform:scale(1);
+
+opacity:.85;
+
+}
+
+50%{
+
+transform:scale(1.05);
+
+opacity:1;
+
+}
+
+100%{
+
+transform:scale(1);
+
+opacity:.85;
+
+}
+
+}
+
+@keyframes floatNote{
+
+0%{
+
+transform:translateY(0px);
+
+}
+
+50%{
+
+transform:translateY(-12px);
+
+}
+
+100%{
+
+transform:translateY(0px);
+
+}
+
+}
+/* ===========================
+   Floating Shapes
+=========================== */
+
+.hero .shape{
+
+position:absolute;
+
+border-radius:50%;
+
+pointer-events:none;
+
+filter:blur(3px);
+
+z-index:0;
+
+}
+
+.hero .shape1{
+
+width:140px;
+
+height:140px;
+
+background:rgba(181,72,255,.10);
+
+right:140px;
+
+top:40px;
+
+}
+
+.hero .shape2{
+
+width:90px;
+
+height:90px;
+
+background:rgba(255,126,203,.14);
+
+right:60px;
+
+bottom:120px;
+
+}
+
+.hero .shape3{
+
+width:70px;
+
+height:70px;
+
+background:rgba(111,64,255,.08);
+
+left:55%;
+
+top:30px;
+
+}
+
+.hero .shape4{
+
+width:130px;
+
+height:130px;
+
+background:rgba(255,255,255,.45);
+
+left:-40px;
+
+bottom:-40px;
+
+filter:blur(12px);
+
+}
+
+/* ===========================
+   Image Hover
+=========================== */
+
+.artist{
+
+transition:.45s;
+
+}
+
+.hero:hover .artist{
+
+transform:
+
+translateY(-8px)
+
+scale(1.02);
+
+}
+
+/* ===========================
+   Feature Hover
+=========================== */
+
+.feature:hover .icon{
+
+transform:scale(1.12);
+
+background:
+
+linear-gradient(135deg,#7f37ff,#b95eff);
+
+color:#fff;
+
+}
+
+/* ===========================
+   Button Shine
+=========================== */
+
+.mainBtn{
+
+overflow:hidden;
+
+position:relative;
+
+}
+
+.mainBtn::before{
+
+content:"";
+
+position:absolute;
+
+left:-120px;
+
+top:0;
+
+width:70px;
+
+height:100%;
+
+background:
+
+rgba(255,255,255,.45);
+
+transform:skew(-20deg);
+
+transition:.8s;
+
+}
+
+.mainBtn:hover::before{
+
+left:120%;
+
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media(max-width:1200px){
+
+.hero{
+
+flex-direction:column-reverse;
+
+padding:50px;
+
+text-align:center;
+
+}
+
+.left{
+
+width:100%;
+
+}
+
+.right{
+
+width:100%;
+
+margin-bottom:45px;
+
+}
+
+.features{
+
+justify-content:center;
+
+}
+
+.title{
+
+font-size:46px;
+
+}
+
+.title span{
+
+font-size:56px;
+
+}
+
+.subtitle{
+
+font-size:19px;
+
+}
+
+
+
+.warning{
+
+border-radius:20px;
+
+margin-top:20px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+body{
+
+padding:15px;
+
+}
+
+.hero{
+
+padding:28px;
+
+border-radius:24px;
+
+}
+
+.title{
+
+font-size:34px;
+
+}
+
+.title span{
+
+font-size:42px;
+
+}
+
+.subtitle{
+
+font-size:16px;
+
+line-height:1.9;
+
+}
+
+.features{
+
+gap:14px;
+
+}
+
+.feature{
+
+width:46%;
+
+height:130px;
+
+}
+
+
+.mainBtn{
+
+width:100%;
+
+padding:18px;
+
+font-size:18px;
+
+}
+
+.music-note{
+
+display:none;
+
+}
+
+.warning{
+
+font-size:14px;
+
+padding:14px;
+
+}
+
+}
+
+@media(max-width:520px){
+
+.feature{
+
+width:100%;
+
+}
+
+}
+/* .artist{
+
+width:250px;
+-webkit-mask-image: linear-gradient(to bottom,#000 88%,transparent 100%);
+    mask-image: linear-gradient(to bottom,#000 88%,transparent 100%);
+
+
+} */
+
+}
+</style>
+<div class="container">
+
+    <div class="hero">
+        <div class="shape shape1"></div>
+        <div class="shape shape2"></div>
+        <div class="shape shape3"></div>
+        <div class="shape shape4"></div>
+    <div class="left">
+    
+    <h1 class="title">
+    
+    دانلود آهنگ های
+    
+    <span>Ece Seçkin</span>
+    
+    </h1>
+    
+    <p class="subtitle">
+    
+    جدیدترین و محبوب‌ترین آهنگ های Ece Seçkin با کیفیت MP3 320 و 128
+    
+    <br>
+    
+    همراه با متن آهنگ و پخش آنلاین
+    
+    </p>
+    
+    <div class="features">
+    
+    <div class="feature">
+    
+    <div class="icon">
+    
+    <i class="fa-solid fa-music"></i>
+    
+    </div>
+    
+    <h4>
+    
+    آهنگ منتخب
+    
+    </h4>
+    
+    </div>
+    
+    <div class="feature">
+    
+    <div class="icon">
+    
+    <i class="fa-solid fa-headphones"></i>
+    
+    </div>
+    
+    <h4>
+    
+    پخش آنلاین
+    
+    </h4>
+    
+    </div>
+    
+    <div class="feature">
+    
+    <div class="icon">
+    
+    <i class="fa-solid fa-compact-disc"></i>
+    
+    </div>
+    
+    <h4>
+    
+    MP3 320
+    
+    </h4>
+    
+    </div>
+    
+    <div class="feature">
+    
+    <div class="icon">
+    
+    <i class="fa-solid fa-file-audio"></i>
+    
+    </div>
+    
+    <h4>
+    
+    MP3 128
+    
+    </h4>
+    
+    </div>
+    
+    </div>
+    
+    <a href="#" class="mainBtn">
+    
+    مشاهده آهنگ ها
+    
+    <i class="fa-solid fa-arrow-down"></i>
+    
+    </a>
+    
+    </div>
+    
+    <div class="right">
+    
+    <img
+    class="artist"
+    src="ece-seckin.png"
+    alt="Ece Seçkin">
+    
+    <div class="music-note note1">
+    
+    <i class="fa-solid fa-music"></i>
+    
+    </div>
+    
+    <div class="music-note note2">
+    
+    <i class="fa-solid fa-music"></i>
+    
+    </div>
+    
+    <div class="music-note note3">
+    
+    <i class="fa-solid fa-music"></i>
+    
+    </div>
+    
+    <div class="music-note note4">
+    
+    <i class="fa-solid fa-music"></i>
+    
+    </div>
+    
+    </div>
+    
+    </div>
+    
+    <div class="warning">
+    
+    ⚡ تمامی آهنگ‌ها با لینک مستقیم، کیفیت ۱۲۸ و ۳۲۰، متن آهنگ و پخش آنلاین در دسترس هستند.
+    
+    </div>
+    
+    </div>

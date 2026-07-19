@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دانلود آهنگ‌های Ece Seçkin</title>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/dist/font-face.css" rel="stylesheet" type="text/css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: #f8f9fc;
+            color: #2d2d2d;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        .header {
+            background: #fff;
+            border-bottom: 1px solid #eee;
+            padding: 30px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+            opacity: 0.6;
+            z-index: 0;
+        }
+        .header-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+        .header-info h1 {
+            font-size: 1.8rem;
+            color: #7c3aed;
+            margin-bottom: 8px;
+        }
+        .header-info .subtitle {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+        .stats-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .stat-box {
+            background: #fff;
+            border: 1px solid #e9d5ff;
+            border-radius: 10px;
+            padding: 10px 16px;
+            text-align: center;
+            min-width: 90px;
+            box-shadow: 0 2px 8px rgba(124, 58, 237, 0.06);
+        }
+        .stat-box .number {
+            font-weight: 700;
+            color: #7c3aed;
+            font-size: 1.1rem;
+            display: block;
+        }
+        .stat-box .label {
+            font-size: 0.75rem;
+            color: #888;
+            margin-top: 2px;
+        }
+        .header-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 22px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            border: none;
+            font-family: inherit;
+        }
+        .btn-primary {
+            background: #7c3aed;
+            color: #fff;
+            box-shadow: 0 4px 14px rgba(124, 58, 237, 0.25);
+        }
+        .btn-primary:hover {
+            background: #6d28d9;
+        }
+        .artist-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 20px;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.2);
+            border: 3px solid #fff;
+        }
+        
+        /* Alert */
+        .alert-banner {
+            background: #fef9c3;
+            border: 1px solid #fde047;
+            border-radius: 10px;
+            padding: 12px 16px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #854d0e;
+            font-size: 0.9rem;
+        }
+        .alert-banner .icon {
+            color: #eab308;
+            font-size: 1.2rem;
+        }
+        
+        /* Section Title */
+        .section-title {
+            font-size: 1.3rem;
+            color: #7c3aed;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+        }
+        
+        /* Song List */
+        .songs-section {
+            margin: 30px 0;
+        }
+        .songs-table {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            border: 1px solid #f3e8ff;
+        }
+        .song-row {
+            display: grid;
+            grid-template-columns: 40px 60px 1fr auto auto auto;
+            align-items: center;
+            padding: 12px 16px;
+            border-bottom: 1px solid #f5f5f5;
+            transition: background 0.2s;
+        }
+        .song-row:last-child {
+            border-bottom: none;
+        }
+        .song-row:hover {
+            background: #faf5ff;
+        }
+        .song-rank {
+            font-weight: 700;
+            color: #999;
+            font-size: 0.9rem;
+        }
+        .song-thumb {
+            width: 44px;
+            height: 44px;
+            border-radius: 8px;
+            object-fit: cover;
+            background: #f3e8ff;
+        }
+        .song-info {
+            padding: 0 12px;
+        }
+        .song-title {
+            font-weight: 600;
+            color: #333;
+            font-size: 0.95rem;
+        }
+        .song-artist {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 2px;
+        }
+        .btn-action {
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+            white-space: nowrap;
+        }
+        .btn-play {
+            background: #f3e8ff;
+            color: #7c3aed;
+            margin-left: 6px;
+        }
+        .btn-dl {
+            background: #f8fafc;
+            color: #475569;
+            border: 1px solid #e2e8f0;
+            margin-left: 6px;
+        }
+        .btn-dl strong {
+            color: #7c3aed;
+        }
+        
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .info-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #f3e8ff;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+        }
+        .info-card h3 {
+            color: #7c3aed;
+            font-size: 1rem;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #f3e8ff;
+        }
+        .info-card p {
+            font-size: 0.85rem;
+            color: #555;
+            line-height: 1.8;
+            text-align: justify;
+        }
+        .info-list {
+            list-style: none;
+        }
+        .info-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #f5f5f5;
+            font-size: 0.85rem;
+        }
+        .info-list li:last-child {
+            border-bottom: none;
+        }
+        .info-list .key {
+            color: #666;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .info-list .value {
+            color: #333;
+            font-weight: 600;
+        }
+        
+        /* Albums */
+        .albums-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 16px;
+            margin: 20px 0;
+        }
+        .album-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #f3e8ff;
+            text-align: center;
+            padding-bottom: 10px;
+            transition: transform 0.2s;
+        }
+        .album-card:hover {
+            transform: translateY(-4px);
+        }
+        .album-cover {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            background: linear-gradient(135deg, #ddd6fe 0%, #c4b5fd 100%);
+        }
+        .album-name {
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 8px;
+            color: #333;
+        }
+        .album-year {
+            font-size: 0.75rem;
+            color: #888;
+        }
+        
+        /* Timeline */
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin: 30px 0;
+            padding: 20px 0;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #f3e8ff;
+        }
+        .timeline-item {
+            position: relative;
+            text-align: center;
+            z-index: 1;
+        }
+        .timeline-dot {
+            width: 12px;
+            height: 12px;
+            background: #7c3aed;
+            border-radius: 50%;
+            margin: 0 auto 8px;
+            border: 2px solid #fff;
+            box-shadow: 0 0 0 2px #f3e8ff;
+        }
+        .timeline-year {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #7c3aed;
+        }
+        .timeline-label {
+            font-size: 0.75rem;
+            color: #888;
+            max-width: 100px;
+            margin-top: 4px;
+        }
+        
+        /* FAQ */
+        .faq-item {
+            background: #fff;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #f3e8ff;
+            overflow: hidden;
+        }
+        .faq-header {
+            padding: 14px 16px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #333;
+            user-select: none;
+        }
+        .faq-header:hover {
+            background: #faf5ff;
+        }
+        .faq-body {
+            padding: 0 16px 16px;
+            font-size: 0.85rem;
+            color: #555;
+            line-height: 1.8;
+            display: none;
+        }
+        .faq-item.active .faq-body {
+            display: block;
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+        .faq-icon {
+            transition: transform 0.3s;
+            color: #7c3aed;
+        }
+        
+        /* Similar Artists */
+        .similar-grid {
+            display: flex;
+            gap: 16px;
+            overflow-x: auto;
+            padding: 10px 0;
+            margin: 20px 0;
+        }
+        .similar-artist {
+            text-align: center;
+            min-width: 80px;
+        }
+        .similar-artist img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #f3e8ff;
+            background: #ddd6fe;
+        }
+        .similar-artist span {
+            display: block;
+            margin-top: 6px;
+            font-size: 0.8rem;
+            color: #555;
+            font-weight: 600;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px 15px;
+            font-size: 0.8rem;
+            color: #888;
+            border-top: 1px solid #f0f0f0;
+            margin-top: 40px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            .song-row {
+                grid-template-columns: 30px 50px 1fr;
+                gap: 8px;
+                row-gap: 4px;
+            }
+            .song-actions {
+                grid-column: span 3;
+                display: flex;
+                justify-content: flex-end;
+                gap: 6px;
+            }
+            .timeline {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+            .timeline::before {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="header-bg"></div>
+        <div class="container header-content">
+            <div class="header-info">
+                <h1>دانلود آهنگ‌های Ece Seçkin</h1>
+                <div class="subtitle">۱۲۶ آهنگ ۳۲۰ و ۱۲۸ کیفیت | Ece Seçkin هنرمند و خواننده با پخش آنلاین و متن آهنگ</div>
+                
+                <div class="stats-row">
+                    <div class="stat-box">
+                        <span class="number">۱۲۶</span>
+                        <span class="label">آهنگ سایت</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="number">۳۲۰</span>
+                        <span class="label">آلبوم پلی لیست</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="number">MP3<br>320</span>
+                        <span class="label">کیفیت ۳۲۰</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="number">MP3<br>128</span>
+                        <span class="label">کیفیت ۱۲۸</span>
+                    </div>
+                </div>
+                
+                <div class="header-actions">
+                    <a href="#" class="btn btn-primary">مشاهده آلبوم‌ها</a>
+                </div>
+            </div>
+            <img src="https://images.unsplash.com/photo-1516280440614-6697288d5d38?w=400&h=400&fit=crop&crop=face" alt="Ece Seçkin" class="artist-image">
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="alert-banner">
+            <span class="icon">⚠️</span>
+            <span>برای دانلود آهنگ اینجا کلیکیدید (VPN) - نهره را شنویی کنید</span>
+        </div>
+
+        <div class="songs-section">
+            <div class="section-title">۲۰ آهنگ برتر Ece Seçkin</div>
+            <div class="songs-table" id="songsList">
+                <!-- Songs will be injected here -->
+            </div>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>درباره Ece Seçkin</h3>
+                <p>
+                    Ece Seçkin خواننده و ترانه‌سرای ترکیه‌ای است که در سال ۱۹۹۱ در استانبول به دنیا آمد. 
+                    او فعالیت حرفه‌ای خود را از سال ۲۰۱۱ آغاز کرد و با ترانه‌های پاپ ترکی توانست محبوبیت 
+                    زیادی به دست آورد. سبک موسیقی او ترکیبی از پاپ مدرن و ملودی‌های سنتی ترکی است.
+                </p>
+            </div>
+            <div class="info-card">
+                <h3>اطلاعات سریع</h3>
+                <ul class="info-list">
+                    <li><span class="key">🎤 نام</span> <span class="value">Ece Seçkin</span></li>
+                    <li><span class="key">🌍 کشور</span> <span class="value">ترکیه</span></li>
+                    <li><span class="key">🎵 سبک</span> <span class="value">پاپ ترکی</span></li>
+                    <li><span class="key">📅 سال فعالیت</span> <span class="value">۲۰۱۱ تا امروز</span></li>
+                    <li><span class="key">🏢 ناشر</span> <span class="value">Doğan Music</span></li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3>آمار و اطلاعات</h3>
+                <ul class="info-list">
+                    <li><span class="key">🎵 تعداد آهنگ</span> <span class="value">۲۰ آهنگ برتر</span></li>
+                    <li><span class="key">📀 تعداد آلبوم</span> <span class="value">۱۰ آلبوم</span></li>
+                    <li><span class="key">🎬 ویدیو</span> <span class="value">۱۲۸ پلی لیست</span></li>
+                    <li><span class="key">👁 بازدید</span> <span class="value">۵۸۹,۰۳۰ بازدید</span></li>
+                    <li><span class="key">⏱ زمان</span> <span class="value">MP3</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section-title">محبوب‌ترین آهنگ‌ها</div>
+        <div class="albums-grid">
+            <div class="album-card">
+                <div class="album-cover" style="background: linear-gradient(135deg, #fbcfe8 0%, #f9a8d4 100%);"></div>
+                <div class="album-name">Adeyyo</div>
+                <div class="album-year">۲۰۱۸</div>
+            </div>
+            <div class="album-card">
+                <div class="album-cover" style="background: linear-gradient(135deg, #ddd6fe 0%, #c4b5fd 100%);"></div>
+                <div class="album-name">Aman Aman</div>
+                <div class="album-year">۲۰۱۶</div>
+            </div>
+            <div class="album-card">
+                <div class="album-cover" style="background: linear-gradient(135deg, #fed7aa 0%, #fdba74 100%);"></div>
+                <div class="album-name">Dibine Dibine</div>
+                <div class="album-year">۲۰۱۸</div>
+            </div>
+            <div class="album-card">
+                <div class="album-cover" style="background: linear-gradient(135deg, #bbf7d0 0%, #86efac 100%);"></div>
+                <div class="album-name">Hoşuna Mı Gidiyor</div>
+                <div class="album-year">۲۰۱۶</div>
+            </div>
+            <div class="album-card">
+                <div class="album-cover" style="background: linear-gradient(135deg, #fecaca 0%, #fca5a5 100%);"></div>
+                <div class="album-name">Yalnız Yalnız</div>
+                <div class="album-year">۲۰۲۰</div>
+            </div>
+        </div>
+
+        <div class="section-title">مسیر فعالیت هنری</div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-year">۲۰۱۱</div>
+                <div class="timeline-label">شروع فعالیت حرفه‌ای</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-year">۲۰۱۲</div>
+                <div class="timeline-label">انتشار آلبوم اول</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-year">۲۰۱۶</div>
+                <div class="timeline-label">ترک آهنگ‌های برتر</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-year">۲۰۱۸</div>
+                <div class="timeline-label">محبوبیت جهانی</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-year">۲۰۲۴</div>
+                <div class="timeline-label">آلبوم جدید و تور</div>
+            </div>
+        </div>
+
+        <div class="section-title">سوالات متداول</div>
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="faq-header" onclick="toggleFaq(this)">
+                    <span>آیا Ece Seçkin ترانه‌های خودش را می‌نویسد؟</span>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-body">
+                    بله، Ece Seçkin علاوه بر خوانندگی، ترانه‌سرایی هم می‌کند و در بسیاری از آهنگ‌های خودش مشارکت داشته است.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-header" onclick="toggleFaq(this)">
+                    <span>چگونه می‌توانم آهنگ‌های Ece Seçkin را دانلود کنم؟</span>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-body">
+                    با کلیک روی دکمه دانلود کنار هر آهنگ، می‌توانید فایل MP3 را با کیفیت ۳۲۰ یا ۱۲۸ دریافت کنید.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-header" onclick="toggleFaq(this)">
+                    <span>آیا امکان پخش آنلاین آهنگ‌ها وجود دارد؟</span>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-body">
+                    بله، با کلیک روی دکمه "پخش آنلاین" می‌توانید قبل از دانلود، آهنگ را گوش دهید.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-header" onclick="toggleFaq(this)">
+                    <span>آیا Ece Seçkin در ایران طرفدار دارد؟</span>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-body">
+                    بله، موسیقی پاپ ترکیه در ایران طرفداران زیادی دارد و Ece Seçkin یکی از محبوب‌ترین خوانندگان این ژانر است.
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title">خوانندگان مشابه</div>
+        <div class="similar-grid">
+            <div class="similar-artist">
+                <div style="width:70px;height:70px;border-radius:50%;background:linear-gradient(135deg,#fbcfe8,#f9a8d4);margin:0 auto;"></div>
+                <span>Hadise</span>
+            </div>
+            <div class="similar-artist">
+                <div style="width:70px;height:70px;border-radius:50%;background:linear-gradient(135deg,#ddd6fe,#c4b5fd);margin:0 auto;"></div>
+                <span>Aleyna Tilki</span>
+            </div>
+            <div class="similar-artist">
+                <div style="width:70px;height:70px;border-radius:50%;background:linear-gradient(135deg,#fed7aa,#fdba74);margin:0 auto;"></div>
+                <span>Simge</span>
+            </div>
+            <div class="similar-artist">
+                <div style="width:70px;height:70px;border-radius:50%;background:linear-gradient(135deg,#bbf7d0,#86efac);margin:0 auto;"></div>
+                <span>Hande Yener</span>
+            </div>
+            <div class="similar-artist">
+                <div style="width:70px;height:70px;border-radius:50%;background:linear-gradient(135deg,#fecaca,#fca5a5);margin:0 auto;"></div>
+                <span>Demet Akalın</span>
+            </div>
+            <div class="similar-artist">
+                <div style="width:70px;height:70px;border-radius:50%;background:linear-gradient(135deg,#bfdbfe,#93c5fd);margin:0 auto;"></div>
+                <span>Gülşen</span>
+            </div>
+            <div class="similar-artist">
+                <div style="width:70px;height:70px;border-radius:50%;background:linear-gradient(135deg,#e9d5ff,#d8b4fe);margin:0 auto;"></div>
+                <span>Yıldız Tilbe</span>
+            </div>
+            <div class="similar-artist">
+                <div style="width:70px;height:70px;border-radius:50%;background:linear-gradient(135deg,#fde68a,#fcd34d);margin:0 auto;"></div>
+                <span>Ziynet Sali</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        تمامی حقوق محفوظ است. سایت دانلود آهنگ Ece Seçkin | طراحی شده با الهام از موسیقی پاپ ترکیه
+    </div>
+
+    <script>
+        const songs = [
+            {rank: 1, title: "Adeyyo", artist: "Ece Seçkin", feat: ""},
+            {rank: 2, title: "Aman Aman", artist: "Ece Seçkin", feat: ""},
+            {rank: 3, title: "Dibine Dibine", artist: "Ece Seçkin", feat: ""},
+            {rank: 4, title: "Olsun", artist: "Ece Seçkin", feat: ""},
+            {rank: 5, title: "Hoşuna Mı Gidiyor", artist: "Ece Seçkin", feat: ""},
+            {rank: 6, title: "Açıyor İyi", artist: "Ece Seçkin", feat: ""},
+            {rank: 7, title: "Gülüm", artist: "Ece Seçkin", feat: ""},
+            {rank: 8, title: "Sen Hala Ordasın", artist: "Ece Seçkin", feat: ""},
+            {rank: 9, title: "Masum", artist: "Ece Seçkin", feat: ""},
+            {rank: 10, title: "Hoş Geldin", artist: "Ece Seçkin", feat: ""},
+            {rank: 11, title: "Doğuyorum", artist: "Gülben & Ece Seçkin", feat: ""},
+            {rank: 12, title: "Yalnız Yalnız", artist: "Ece Seçkin", feat: ""},
+            {rank: 13, title: "Kul", artist: "Ece Seçkin", feat: ""},
+            {rank: 14, title: "Aşka Yürek Gerek", artist: "Reynmen, Ece Seçkin", feat: "Mustafa Sandal"},
+            {rank: 15, title: "Nos Fuimos Lejos", artist: "Ece Seçkin", feat: "Descemer Bueno & El Micha"},
+            {rank: 16, title: "Siyah İnci", artist: "Ozan Doğulu, Ece Seçkin", feat: ""},
+            {rank: 17, title: "Aya Benzer", artist: "Ece Seçkin", feat: ""},
+            {rank: 18, title: "Yastık", artist: "Ece Seçkin", feat: ""},
+            {rank: 19, title: "Vazgeçtim", artist: "Ece Seçkin", feat: ""},
+            {rank: 20, title: "Gecenin Zamanı", artist: "Ece Seçkin", feat: ""},
+        ];
+
+        const list = document.getElementById('songsList');
+        songs.forEach(song => {
+            const row = document.createElement('div');
+            row.className = 'song-row';
+            row.innerHTML = `
+                <div class="song-rank">${String(song.rank).padStart(2, '0')}</div>
+                <div class="song-thumb" style="background: linear-gradient(135deg, #f3e8ff, #e9d5ff);"></div>
+                <div class="song-info">
+                    <div class="song-title">${song.title}</div>
+                    <div class="song-artist">${song.artist} ${song.feat ? '- ' + song.feat : ''}</div>
+                </div>
+                <div class="song-actions">
+                    <button class="btn-action btn-play">▶ پخش آنلاین</button>
+                    <button class="btn-action btn-dl">⬇ <strong>دانلود ۳۲۰</strong></button>
+                    <button class="btn-action btn-dl">⬇ دانلود ۱۲۸</button>
+                </div>
+            `;
+            list.appendChild(row);
+        });
+
+        function toggleFaq(header) {
+            const item = header.parentElement;
+            item.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
